@@ -1,8 +1,3 @@
-const lightTheme = "styles/light.css";
-const darkTheme = "styles/dark.css";
-const sunIcon = "assets/SunIcon.svg";
-const moonIcon = "assets/MoonIcon.svg";
-const themeIcon = document.getElementById("theme-icon");
 const res = document.getElementById("result");
 const toast = document.getElementById("toast");
 
@@ -18,22 +13,6 @@ function calculate(value) {
   }
 }
 
-// Swaps the stylesheet to achieve dark mode.
-function changeTheme() {
-  const theme = document.getElementById("theme");
-  setTimeout(() => {
-    toast.innerHTML = "Calculator";
-  }, 1500);
-  if (theme.getAttribute("href") === lightTheme) {
-    theme.setAttribute("href", darkTheme);
-    themeIcon.setAttribute("src", sunIcon);
-    toast.innerHTML = "Dark Mode 🌙";
-  } else {
-    theme.setAttribute("href", lightTheme);
-    themeIcon.setAttribute("src", moonIcon);
-    toast.innerHTML = "Light Mode ☀️";
-  }
-}
 
 // Displays entered value on screen.
 function liveScreen(enteredValue) {
@@ -89,17 +68,17 @@ function keyboardInputHandler(e) {
     res.value += "/";
   }
 
-  //decimal key
+  //hasil kalau desimal 
   if (e.key === ".") {
     res.value += ".";
   }
 
-  //press enter to see result
+  //buat enter
   if (e.key === "Enter") {
     calculate(result.value);
   }
 
-  //backspace for removing the last input
+  //buat hapus
   if (e.key === "Backspace") {
     const resultInput = res.value;
     //remove the last element in the string
